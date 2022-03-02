@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg bg-primary fixed-top">
+  <div class="container">
+    <div class="navbar-translate">
+      <a class="navbar-brand" [routerLink]="['/pokemons']" placement="bottom" ngbTooltip="Pokemons">
+        Pokemons
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarTogglerDemo02"
+        aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+        <span class="navbar-toggler-bar bar1"></span>
+        <span class="navbar-toggler-bar bar2"></span>
+        <span class="navbar-toggler-bar bar3"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ng-container>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/pokemons">
+              <p>All Pokemons</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/catched">
+              <p>Catched Pokemons</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/whishlist">
+              <p>My Wishlist</p>
+            </a>
+          </li>
+        </ul>
+      </ng-container>
+    </div>
+  </div>
+</nav>

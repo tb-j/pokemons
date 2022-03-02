@@ -1,0 +1,46 @@
+<div class="section">
+  <div class="container pt-1">
+    <div class="card">
+      <div class="card-header">
+        <div class="row mx-2 align-items-center d-flex">
+          <h5 class="col-4 title mb-0 pb-0">My Whishlist</h5>
+          <div class="col-8 mb-0 pb-0 d-flex justify-content-end">
+            <a href="javascript:void(0)" (click)="back()" class=" btn btn-default m-0">Back</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body ">
+        <form>
+          <div class="row px-3">
+            <span class="col col-form-label" *ngIf="service.loading$ | async">Loading...</span>
+            <table class="table table-striped table-borderless" aria-describedby="mydesc">
+              <thead>
+                <tr>
+                  <th>Pokemon Name</th>
+                  <th class="text-center">Remove Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngIf="(this.pokemonsWishListt$ | async)?.length==0">
+                  <td colspan="2">No pokemons.</td>
+                </tr>
+                <tr *ngFor="let pokemon of this.pokemonsWishListt$ | async ">
+                  <td class="pt-4">
+                    <a [routerLink]="'/pokemons/'+pokemon.name">
+                      <ngb-highlight [result]="pokemon.name" [term]="service.searchTerm"></ngb-highlight>
+                    </a>
+                  </td>
+                  <td class="text-center">
+                    <button (click)="removePokemon(pokemon?.id?.toString())" class="btn btn-danger">
+                      <i class="fa fa-lg fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

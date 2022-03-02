@@ -1,0 +1,72 @@
+<div class="section">
+  <div class="container">
+    <div class="row align-items-center d-flex ">
+      <h5 class="col-4 title">{{details?.name}}</h5>
+      <div class="col-8 mb-0 pb-0 d-flex justify-content-end">
+        <a href="javascript:void(0)" (click)="back()" class=" btn btn-default m-0">Back</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card px-3">
+          <div class="card-header mt-0">
+            <h5 class="title pt-3">Moves</h5>
+          </div>
+          <div class="card-body">
+            <ul class="list-group" *ngFor="let item of details.moves">
+              <li class="list-group-item"> {{item?.move?.name}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card px-3">
+          <div class="card-header mt-0">
+            <h5 class="title">Avatars</h5>
+          </div>
+          <div class="card-body">
+            <img [src]="details?.sprites?.back_default" alt="back default" />
+            <img [src]="details?.sprites?.back_shiny" alt="back shiny" />
+            <img [src]="details?.sprites?.front_default" alt="front shiny" />
+            <img [src]="details?.sprites?.front_shiny" alt="front shiny" />
+          </div>
+        </div>
+        <div class="card px-3">
+          <div class="card-header mt-0">
+            <h5 class="title">Abilities</h5>
+          </div>
+          <div class="card-body">
+            <ul *ngFor="let item of details.abilities">
+              <li>{{item?.ability?.name}}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card px-3">
+          <div class="card-header mt-0">
+            <h5 class="title pt-3">Stats</h5>
+          </div>
+          <div class="card-body">
+            <div class="d-flex col-12">
+              <div class="col-6">Stat name</div>
+              <div class="col-3">Base stat</div>
+              <div class="col-3">Effort</div>
+            </div>
+            <div *ngFor="let item of details.stats">
+              <div class="d-flex col-12">
+                <div class="col-6">
+                  {{item?.stat?.name}}
+                </div>
+                <div class="col-3">
+                  {{item?.base_stat}}
+                </div>
+                <div class="col-3">
+                  {{item?.effort}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
